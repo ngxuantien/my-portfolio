@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
+
+@theme {
+  --color-obsidian-dark: #0F172A;
+  --color-primary-indigo: #6366F1;
+  --color-secondary-cyan: #0BBBD4;
+  --color-tertiary-purple: #A855F7;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
