@@ -1,6 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root{
+  --color-bg: #ffffff;
+  --color-text: #0F172A;
+}
+
+.dark{
+  --color-bg: #0F172A;
+  --color-text: #ffffff;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  @apply transition-colors duration-300;
+}
+
 @theme {
   --color-obsidian-dark: #0F172A;
   --color-primary-indigo: #6366F1;
