@@ -48,7 +48,8 @@ transition-colors duration-300">
 
         <!-- Button -->
         <div class="flex items-center space-x-4">
-            <button (click)="toggleTheme()" class="p-2 rounded-lg bg-slate-200 dark:bg-slate-700 hover:bg-slate-600 transition">
+            <button (click)="toggleTheme()"
+                class="p-2 rounded-lg bg-slate-200 dark:bg-slate-700 hover:bg-slate-600 transition">
                 @if (!isDark) {
                 <span>🌙</span>
                 } @else {
@@ -61,11 +62,15 @@ transition-colors duration-300">
             </button>
 
             <svg class="w-6 h-6 text-amber-50 hover:text-[#1179EA] transition cursor-pointer">
-                <use href="icon/github.svg"></use>
+                <a href="https://github.com/ngxuantien" target="_blank">
+                    <use href="icon/github.svg"></use>
+                </a>
             </svg>
 
             <svg class="w-6 h-6 text-amber-50 hover:text-[#1179EA] transition cursor-pointer">
-                <use href="icon/linkedin.svg"></use>
+                <a href="https://www.linkedin.com/in/nguy%E1%BB%85n-xu%C3%A2n-ti%E1%BA%BFn-7a7b55258/" target="_blank">
+                    <use href="icon/linkedin.svg"></use>
+                </a>
             </svg>
         </div>
     </div>
