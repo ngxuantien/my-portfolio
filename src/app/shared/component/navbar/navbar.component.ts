@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { LucideAngularModule } from 'lucide-angular';
+import { SectionService } from '../../../core/services/section.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,10 @@ import { LucideAngularModule } from 'lucide-angular';
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
-  isDark = true;
+  constructor(public sectionService: SectionService){}
+
+  isDark = false;
+
   toggleTheme(){
     this.isDark = !this.isDark;
     if(this.isDark){
@@ -23,7 +27,7 @@ export class NavbarComponent {
 
   ngOnInit(){
     const theme = localStorage.getItem('theme');
-    if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    if (theme === 'dark') {
       this.isDark = true;
       document.documentElement.classList.add('dark');
     } else {
@@ -32,10 +36,12 @@ export class NavbarComponent {
     }
   }
 
-  scrollTo(id: string) {
+  scrollTo(id: string): void{
+    this.sectionService.setActiveSection(id);
+
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 }

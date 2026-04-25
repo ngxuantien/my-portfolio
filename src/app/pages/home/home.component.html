@@ -1,37 +1,52 @@
-<div id="home" class="min-h-screen bg-transparent text-slate-900 dark:text-white font-sans selection:bg-cyan-500/30">
-    <main class="max-w-7xl mx-auto px-8 pt-32 pb-20">
-        <div class="flex flex-col items-center text-center max-w-4xl mx-auto">
-            <div class="w-48 h-48 mb-8">
-                <img src="./images/my-pic.jpg" alt="Nguyen Xuan Tien"
-                    class="w-full h-full object-cover rounded-full border-4 border-slate-100 dark:border-slate-800 shadow-xl">
-            </div>
+<div
+  id="home"
+  class="min-h-screen flex items-center justify-center bg-transparent text-app-text dark:text-app-text-soft font-sans relative"
+>
+  <main class="w-full max-w-7xl mx-auto px-8 py-20 z-10">
+    <div
+      class="flex flex-col items-center justify-center text-center max-w-full mx-auto"
+    >
+      <div class="w-48 h-48 mb-8">
+        <img
+          src="./images/my-pic.jpg"
+          alt="Nguyen Xuan Tien"
+          class="w-full h-full object-cover rounded-full border-4 border-slate-100 dark:border-slate-800 shadow-xl"
+        />
+      </div>
 
-            <div class="flex flex-col items-center">
-                <h1
-                    class="text-4xl md:text-6xl font-black tracking-tighter leading-tight uppercase mb-4 text-slate-900 dark:text-white">
-                    Hi, I'm Nguyen Xuan Tien
-                </h1>
+      <div class="flex flex-col items-center">
+        <h1
+          class="text-4xl md:text-6xl font-black tracking-tighter leading-tight mb-4 text-slate-900 dark:text-white"
+        >
+          Hi, I'm
+          <span class="text-brand-primary">Nguyen Xuan Tien</span>
+        </h1>
 
-                <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed max-w-xl mb-10">
-                    A full-stack developer driven by a passion for turning ideas into powerful, real-world web
-                    applications that deliver meaningful impact.
-                </p>
+        <p
+          class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed max-w-xl mb-10"
+        >
+          A full-stack developer driven by a passion for turning ideas into
+          powerful, real-world web applications that deliver meaningful impact.
+        </p>
 
-                <div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                    <button (click)="scrollTo('projects')"
-                        class="bg-[#818CF8] hover:bg-primary-indigo cursor-pointer text-slate-900 dark:text-white px-8 py-4 rounded-xl font-bold transition flex items-center shadow-lg shadow-indigo-500/20 w-full sm:w-auto justify-center">
-                        View Projects
-                    </button>
+        <div
+          class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4"
+        >
+          <button
+            (click)="scrollTo('projects')"
+            class="bg-brand-primary hover:bg-brand-primary-hover cursor-pointer text-white dark:text-app-text px-8 py-4 rounded-xl font-bold transition flex items-center shadow-lg shadow-indigo-500/20 w-full sm:w-auto justify-center"
+          >
+            View Projects
+          </button>
 
-                    <button (click)="scrollTo('contact')"
-                        class="border border-slate-300 dark:border-slate-700 cursor-pointer bg-slate-100/50 dark:bg-slate-900/50 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-900 dark:text-white px-8 py-4 rounded-xl font-bold transition w-full sm:w-auto">
-                        Contact Me
-                    </button>
-                </div>
-            </div>
+          <button
+            (click)="scrollTo('contact')"
+            class="border border-slate-300 dark:border-slate-700 cursor-pointer bg-slate-100/50 dark:bg-slate-900/50 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-900 dark:text-white px-8 py-4 rounded-xl font-bold transition w-full sm:w-auto"
+          >
+            Contact Me
+          </button>
         </div>
-    </main>
-
-    <div class="fixed top-0 right-0 -z-10 w-[500px] h-[500px] bg-cyan-500/10 blur-[120px] rounded-full"></div>
-    <div class="fixed bottom-0 left-0 -z-10 w-[300px] h-[300px] bg-purple-500/10 blur-[100px] rounded-full"></div>
+      </div>
+    </div>
+  </main>
 </div>
