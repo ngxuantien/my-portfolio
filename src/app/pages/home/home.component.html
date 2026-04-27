@@ -1,50 +1,54 @@
 <div
   id="home"
-  class="min-h-screen flex items-center justify-center bg-transparent text-app-text dark:text-app-text-soft font-sans relative"
+  class="min-h-screen flex items-center justify-center bg-transparent text-app-text font-sans relative"
 >
   <main class="w-full max-w-7xl mx-auto px-8 py-20 z-10">
     <div
       class="flex flex-col items-center justify-center text-center max-w-full mx-auto"
     >
-      <div class="w-48 h-48 mb-8">
-        <img
-          src="./images/my-pic.jpg"
-          alt="Nguyen Xuan Tien"
-          class="w-full h-full object-cover rounded-full border-4 border-slate-100 dark:border-slate-800 shadow-xl"
-        />
-      </div>
-
       <div class="flex flex-col items-center">
-        <h1
-          class="text-4xl md:text-6xl font-black tracking-tighter leading-tight mb-4 text-slate-900 dark:text-white"
-        >
+        <div class="text-xl md:text-2xl tracking-widest leading-12 mb-8">
           Hi, I'm
-          <span class="text-brand-primary">Nguyen Xuan Tien</span>
-        </h1>
-
-        <p
-          class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed max-w-xl mb-10"
+          <h1 class="text-app-text-cream font-bold text-7xl">
+            Nguyen Xuan Tien
+          </h1>
+        </div>
+        <div class="h-[32px] flex items-center justify-center mb-10">
+          <span id="typing" class="text-brand-primary text-4xl"></span>
+        </div> 
+        <div
+          class="text-app-text-soft text-xl leading-relaxed max-w-xl mb-10"
         >
-          A full-stack developer driven by a passion for turning ideas into
-          powerful, real-world web applications that deliver meaningful impact.
-        </p>
+          I'm passionate about building modern, scalable, and user-focused web applications
+        </div>
 
         <div
-          class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4"
+          class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 w-full"
         >
           <button
-            (click)="scrollTo('projects')"
-            class="bg-brand-primary hover:bg-brand-primary-hover cursor-pointer text-white dark:text-app-text px-8 py-4 rounded-xl font-bold transition flex items-center shadow-lg shadow-indigo-500/20 w-full sm:w-auto justify-center"
+            (click)="scrollTo('contact')"
+            class="flex-1 cursor-pointer px-8 py-4 font-medium rounded-full text-black
+                   bg-linear-to-r from-brand-primary to-brand-secondary
+                   transition-all duration-300
+                   shadow-md hover:shadow-lg hover:-translate-y-0.5"
           >
-            View Projects
+            Let's Connect
           </button>
 
           <button
-            (click)="scrollTo('contact')"
-            class="border border-slate-300 dark:border-slate-700 cursor-pointer bg-slate-100/50 dark:bg-slate-900/50 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-900 dark:text-white px-8 py-4 rounded-xl font-bold transition w-full sm:w-auto"
+            (click)="scrollTo('projects')"
+            class="flex-1 cursor-pointer border border-brand-primary px-8 py-4 font-bold text-app-text-primary transition w-full rounded-full hover:shadow-lg hover:-translate-y-0.5"
           >
-            Contact Me
+            Resume
           </button>
+        </div>
+        <div class="mt-10 flex text-app-text-soft items-center gap-2">
+          <svg
+            class="w-6 h-6 transition cursor-pointer hover:-translate-y-0.5"
+          >
+            <use href="icon/map-pin.svg"></use>
+          </svg>
+          Ho Chi Minh City, Viet Nam
         </div>
       </div>
     </div>

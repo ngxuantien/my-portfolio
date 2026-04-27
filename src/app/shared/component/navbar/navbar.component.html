@@ -1,24 +1,16 @@
-<nav class="fixed top-0 left-0 w-full z-50 bg-app-surface">
-  <div class="max-w-7xl mx-auto flex items-center justify-between px-8 py-4">
-    <!-- Logo -->
-    <div
-      (click)="scrollTo('home')"
-      class="cursor-pointer text-2xl font-black text-app-text tracking-tight transition"
-    >
-      Tien's Portfolio
-    </div>
-
+<nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50">
+  <div class="hidden md:flex items-center justify-center rounded-full border border-app-border bg-app-bg px-12 py-3 shadow-xl shadow-app-shadow backdrop-blur-xl">
     <!-- Menu -->
     <div
-      class="hidden md:flex items-center space-x-8 gap-2 text-sm font-medium text-app-text"
+      class="hidden md:flex items-center space-x-8 gap-8 font-medium text-app-text-muted"
     >
       <a
         (click)="scrollTo('home')"
-        class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-app-text after:transition-all"
+        class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-brand-primary after:transition-all after:w-0 hover:after:w-full"
         [ngClass]="
           sectionService.activeSection() === 'home'
-            ? 'text-app-text after:w-full'
-            : 'hover:text-app-text after:w-0 hover:after:w-full'
+            ? 'text-app-text-primary'
+            : 'hover:text-app-text-primary'
         "
       >
         Home
@@ -26,11 +18,11 @@
 
       <a
         (click)="scrollTo('about')"
-        class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-app-text after:transition-all"
+        class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-brand-primary after:transition-all after:w-0 hover:after:w-full"
         [ngClass]="
           sectionService.activeSection() === 'about'
-            ? 'text-app-text after:w-full'
-            : 'hover:text-app-text after:w-0 hover:after:w-full'
+            ? 'text-app-text-primary'
+            : 'hover:text-app-text-primary'
         "
       >
         About
@@ -38,11 +30,11 @@
 
       <a
         (click)="scrollTo('skills')"
-        class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-app-text after:transition-all"
+        class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-brand-primary after:transition-all after:w-0 hover:after:w-full"
         [ngClass]="
           sectionService.activeSection() === 'skills'
-            ? 'text-app-text after:w-full'
-            : 'hover:text-app-text after:w-0 hover:after:w-full'
+            ? 'text-app-text-primary'
+            : 'hover:text-app-text-primary'
         "
       >
         Skills
@@ -50,11 +42,11 @@
 
       <a
         (click)="scrollTo('projects')"
-        class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-app-text after:transition-all"
+        class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-brand-primary after:transition-all after:w-0 hover:after:w-full"
         [ngClass]="
           sectionService.activeSection() === 'projects'
-            ? 'text-app-text after:w-full'
-            : 'hover:text-app-text after:w-0 hover:after:w-full'
+            ? 'text-app-text-primary'
+            : 'hover:text-app-text-primary'
         "
       >
         Projects
@@ -62,11 +54,11 @@
 
       <a
         (click)="scrollTo('experience')"
-        class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-app-text after:transition-all"
+        class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-brand-primary after:transition-all after:w-0 hover:after:w-full"
         [ngClass]="
           sectionService.activeSection() === 'experience'
-            ? 'text-app-text after:w-full'
-            : 'hover:text-app-text after:w-0 hover:after:w-full'
+            ? 'text-app-text-primary'
+            : 'hover:text-app-text-primary'
         "
       >
         Experience
@@ -74,11 +66,11 @@
 
       <a
         (click)="scrollTo('contact')"
-        class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-app-text after:transition-all"
+        class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-brand-primary after:transition-all after:w-0 hover:after:w-full"
         [ngClass]="
           sectionService.activeSection() === 'contact'
-            ? 'text-app-text after:w-full'
-            : 'hover:text-app-text after:w-0 hover:after:w-full'
+            ? 'text-app-text-primary'
+            : 'hover:text-app-text-primary'
         "
       >
         Contact
@@ -86,7 +78,7 @@
     </div>
 
     <!-- Button -->
-    <div class="flex items-center gap-6">
+    <!-- <div class="flex items-center gap-6">
       <button (click)="toggleTheme()" class="hover:-translate-y-0.5">
         @if (!isDark) {
           <svg
@@ -133,6 +125,6 @@
           <use href="icon/linkedin.svg"></use>
         </a>
       </svg>
-    </div>
+    </div> -->
   </div>
 </nav>
