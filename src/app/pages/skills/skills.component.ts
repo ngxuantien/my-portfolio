@@ -46,15 +46,26 @@ export class SkillsComponent {
       items: ['Docker / Kubernetes', 'Azure / AWS', 'Git / Github', 'CI/CD'],
     },
     {
-      category: 'Other',
-      icon: 'icon/brain.svg',
-      iconClass: 'h-6 w-6',
-      items: [
-        'Object-Oriented Programming',
-        'Clean Architecture',
-        'Design Patterns',
-        'SOLID',
-      ],
-    },
+    category: 'Architecture',
+    icon: 'icon/brain.svg',
+    iconClass: 'h-6 w-6',
+    items: [
+      'Clean Architecture',
+      'Design Patterns',
+      'SOLID',
+      'MVC Architecture',
+    ],
+  },
+  {
+    category: 'Core Skills',
+    icon: 'icon/file-braces.svg',
+    iconClass: 'h-6 w-6',
+    items: [
+      'Object-Oriented Programming',
+      'Data Structures and Algorithms',
+      'Problem Solving',
+      'Debugging & Refactoring',
+    ],
+  },
   ];
 }

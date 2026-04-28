@@ -1,4 +1,4 @@
-<section id="skills" class="min-h-screen bg-app-bg text-app-text pt-24 px-8">
+<section id="skills" class="min-h-screen bg-app-bg text-app-text pt-24 px-8 mb-12">
     <div class="max-w-6xl mx-auto">
         <div class="mb-8">
             <h2 class="text-xl md:text-2xl font-bold tracking-tight">
@@ -6,10 +6,10 @@
             </h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             @for (skill of skillsList; track $index) {
             <div
-                class="group p-10 rounded-2xl cursor-default border border-yellow-400/30 transition-all duration-300 hover:-translate-y-1 hover:border-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.15)]">
+                class="group p-8 rounded-2xl cursor-default border border-yellow-400/30 transition-all duration-300 hover:-translate-y-1 hover:border-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.15)]">
                 <div class="flex items-center gap-3 mb-6">
                     <svg [class]="skill.iconClass">
                         <use [attr.href]="skill.icon"></use>
