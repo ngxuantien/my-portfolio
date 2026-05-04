@@ -2,51 +2,170 @@
   <div class="max-w-7xl mx-auto">
     <div class="flex flex-col md:flex-row justify-between items-end mb-8 gap-6">
       <div class="max-w-xl">
-        <h2 class="text-xl md:text-2xl font-bold tracking-tighter">Featured Projects</h2>
+        <h2 class="text-xl md:text-2xl font-bold tracking-tighter text-app-text">
+          Featured Projects
+        </h2>
       </div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      
-      <div class="group">
+      @for (project of projects; track $index) {
+      <div class="group border border-app-border-soft cursor-pointer" (click)="openProject(project)">
         <div class="relative overflow-hidden rounded-2xl mb-6 aspect-video bg-slate-100 dark:bg-slate-800">
-          <img src="project-thumb.jpg" class="object-cover w-full h-full group-hover:scale-110 transition duration-500 opacity-80 group-hover:opacity-100" />
+          <img [src]="project.imageUrl" [alt]="project.title + ' preview'"
+            class="object-cover w-full h-full group-hover:scale-110 transition duration-500 opacity-80 group-hover:opacity-100" />
+
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition"></div>
+
+          <div class="absolute right-4 top-4 px-3 py-1 rounded-full text-xs font-medium
+                       bg-black/50 text-white opacity-0 group-hover:opacity-100 transition">
+            View Details
+          </div>
         </div>
-        <span class="inline-block px-3 py-1 rounded bg-indigo-500/10 text-indigo-400 text-[10px] font-bold tracking-widest uppercase mb-4">Fintech</span>
-        <h3 class="text-2xl font-bold mb-3">Nexus Analytics</h3>
-        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed">Real-time market tracking platform with predictive AI modelling.</p>
+
+        <span class="inline-block px-3 py-1 rounded bg-yellow-400/10 text-yellow-400
+                   text-[10px] font-bold tracking-widest uppercase mb-4">
+          {{ project.category }}
+        </span>
+
+        <h3 class="text-2xl font-bold mb-3 text-app-text">
+          {{ project.title }}
+        </h3>
+
+        <p class="text-slate-600 dark:text-slate-400 text-sm mb-5 leading-relaxed">
+          {{ project.description }}
+        </p>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+          @for (tech of project.techStacks.slice(0, 5); track tech) {
+          <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800
+               text-slate-600 dark:text-slate-300 text-xs">
+            {{ tech }}
+          </span>
+          }
+        </div>
+
         <div class="flex space-x-6 text-xs font-bold tracking-widest uppercase">
-          <a href="#" class="text-secondary-cyan hover:underline flex items-center">Live Demo <span class="ml-1">↗</span></a>
-          <a href="#" class="text-slate-500 hover:text-slate-900 dark:text-white transition">Source</a>
+          <a *ngIf="project.demoUrl" [href]="project.demoUrl" target="_blank" rel="noopener noreferrer"
+            class="text-secondary-cyan hover:underline flex items-center">
+            Live Demo <span class="ml-1">↗</span>
+          </a>
+
+          <a *ngIf="project.sourceUrl" [href]="project.sourceUrl" target="_blank" rel="noopener noreferrer"
+            class="text-slate-500 hover:text-slate-900 dark:text-white transition">
+            Source
+          </a>
         </div>
       </div>
-
-      <div class="group">
-        <div class="relative overflow-hidden rounded-2xl mb-6 aspect-video bg-slate-100 dark:bg-slate-800">
-          <img src="project-2.jpg" class="object-cover w-full h-full group-hover:scale-110 transition duration-500 opacity-80" />
-        </div>
-        <span class="inline-block px-3 py-1 rounded bg-cyan-500/10 text-cyan-400 text-[10px] font-bold tracking-widest uppercase mb-4">Web3</span>
-        <h3 class="text-2xl font-bold mb-3">Vault Protocol</h3>
-        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed">High-security decentralized storage interface for enterprise data.</p>
-        <div class="flex space-x-6 text-xs font-bold tracking-widest uppercase">
-          <a href="#" class="text-secondary-cyan hover:underline flex items-center">Live Demo <span class="ml-1">↗</span></a>
-          <a href="#" class="text-slate-500 hover:text-slate-900 dark:text-white transition">Source</a>
-        </div>
-      </div>
-
-      <div class="group">
-        <div class="relative overflow-hidden rounded-2xl mb-6 aspect-video bg-slate-100 dark:bg-slate-800">
-          <img src="project-3.jpg" class="object-cover w-full h-full group-hover:scale-110 transition duration-500 opacity-80" />
-        </div>
-        <span class="inline-block px-3 py-1 rounded bg-purple-500/10 text-purple-400 text-[10px] font-bold tracking-widest uppercase mb-4">Design</span>
-        <h3 class="text-2xl font-bold mb-3">Ether Concept</h3>
-        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed">Award-winning editorial experience for a luxury lifestyle brand.</p>
-        <div class="flex space-x-6 text-xs font-bold tracking-widest uppercase">
-          <a href="#" class="text-secondary-cyan hover:underline flex items-center">Live Demo <span class="ml-1">↗</span></a>
-          <a href="#" class="text-slate-500 hover:text-slate-900 dark:text-white transition">Source</a>
-        </div>
-      </div>
-
+      }
     </div>
   </div>
 </section>
+
+@if (selectedProject) {
+<div class="fixed inset-0 z-999 bg-black/70 backdrop-blur-sm px-4 py-8 overflow-y-auto" (click)="closeProject()">
+  <div class="max-w-6xl mx-auto rounded-3xl border border-app-border bg-app-surface text-app-text overflow-hidden"
+    (click)="$event.stopPropagation()">
+    <div class="sticky top-0 z-10 flex items-center justify-between gap-4
+               px-8 py-5 border-b border-app-border bg-app-surface/90 backdrop-blur-md">
+      <div>
+        <h3 class="text-2xl font-bold">
+          {{ selectedProject.title }}
+        </h3>
+
+        <p class="text-sm text-app-text-muted mt-1">
+          {{ selectedProject.category }}
+        </p>
+      </div>
+
+      <button type="button" (click)="closeProject()" class="w-10 h-10 rounded-full border border-app-border flex items-center justify-center
+                 hover:bg-yellow-400 hover:text-black hover:border-yellow-400 transition">
+        ✕
+      </button>
+    </div>
+
+    <div class="p-8">
+      <div class="rounded-2xl overflow-hidden border border-app-border mb-8">
+        <img [src]="selectedProject.imageUrl" [alt]="selectedProject.title + ' preview'"
+          class="w-full max-h-[230px] object-cover" />
+      </div>
+
+      <p class="text-app-text-muted leading-relaxed mb-6 max-w-4xl">
+        {{ selectedProject.description }}
+      </p>
+
+      <div class="flex flex-wrap gap-2 mb-8">
+        @for (tech of selectedProject.techStacks; track tech) {
+        <span class="px-3 py-1 rounded-full text-xs bg-app-bg-soft border border-app-border">
+          {{ tech }}
+        </span>
+        }
+      </div>
+
+      <div class="flex flex-wrap gap-3 mb-10">
+        @if (selectedProject.demoUrl) {
+        <a [href]="selectedProject.demoUrl" target="_blank" rel="noopener noreferrer"
+          class="px-5 py-2.5 rounded-full bg-yellow-400 text-black text-sm font-medium transition hover:-translate-y-0.5">
+          Live Demo
+        </a>
+        }
+
+        @if (selectedProject.sourceUrl) {
+        <a [href]="selectedProject.sourceUrl" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full border border-app-border text-sm font-medium transition
+                     hover:bg-yellow-400 hover:text-black hover:border-yellow-400">
+          Source Code
+        </a>
+        }
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="rounded-2xl border border-app-border bg-app-bg-soft p-6">
+          <h4 class="font-bold text-yellow-400 mb-3">
+            The Problem
+          </h4>
+
+          <p class="text-app-text-muted leading-relaxed">
+            {{ selectedProject.problem }}
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-app-border bg-app-bg-soft p-6">
+          <h4 class="font-bold text-yellow-400 mb-3">
+            Architecture
+          </h4>
+
+          <ul class="space-y-2 text-app-text-muted">
+            @for (item of selectedProject.architecture; track item) {
+            <li>• {{ item }}</li>
+            }
+          </ul>
+        </div>
+
+        <div class="rounded-2xl border border-app-border bg-app-bg-soft p-6">
+          <h4 class="font-bold text-yellow-400 mb-3">
+            Challenges Solved
+          </h4>
+
+          <ul class="space-y-2 text-app-text-muted">
+            @for (item of selectedProject.challenges; track item) {
+            <li>• {{ item }}</li>
+            }
+          </ul>
+        </div>
+
+        <div class="rounded-2xl border border-app-border bg-app-bg-soft p-6">
+          <h4 class="font-bold text-yellow-400 mb-3">
+            What I Learned
+          </h4>
+
+          <ul class="space-y-2 text-app-text-muted">
+            @for (item of selectedProject.learnings; track item) {
+            <li>• {{ item }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}

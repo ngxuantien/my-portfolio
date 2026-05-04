@@ -31,7 +31,7 @@ export class ProjectsComponent {
       category: 'Fullstack',
       description:
         'A retail/POS management platform for handling products, orders, inventory, users, and reports.',
-      imageUrl: './images/projects/retail-management.png',
+      imageUrl: './icon/server.svg',
       techStacks: ['Angular', 'ASP.NET Core', 'EF Core', 'SQL Server', 'TailwindCSS'],
       features: [
         'Product and inventory management',
@@ -63,7 +63,7 @@ export class ProjectsComponent {
       category: 'Frontend',
       description:
         'A responsive portfolio website with smooth scrolling, active navigation, contact section, and reusable UI components.',
-      imageUrl: './images/projects/portfolio.png',
+      imageUrl: './icon/server.svg',
       techStacks: ['Angular', 'TypeScript', 'TailwindCSS'],
       features: [
         'Responsive landing page design',
@@ -95,7 +95,7 @@ export class ProjectsComponent {
       category: 'Dashboard',
       description:
         'An admin dashboard for managing business data with tables, filters, forms, dialogs, and dashboard widgets.',
-      imageUrl: './images/projects/admin-dashboard.png',
+      imageUrl: './icon/server.svg',
       techStacks: ['Angular', 'TypeScript', 'REST API', 'TailwindCSS'],
       features: [
         'Reusable data table with pagination',
