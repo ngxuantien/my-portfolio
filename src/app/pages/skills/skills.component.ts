@@ -23,7 +23,7 @@ export class SkillsComponent {
         'C# / .NET',
         'ASP.NET Core',
         'REST API',
-        'Entity Framework',
+        'Entity Framework Core',
         'SignalR',
       ],
     },
@@ -43,7 +43,7 @@ export class SkillsComponent {
       category: 'Tools & DevOps',
       icon: 'icon/puzzle.svg',
       iconClass: 'h-6 w-6',
-      items: ['Docker / Kubernetes', 'Azure / AWS', 'Git / Github', 'CI/CD'],
+      items: ['Docker', 'Azure', 'Git / Github', 'CI/CD'],
     },
     {
     category: 'Architecture',

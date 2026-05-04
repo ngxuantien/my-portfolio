@@ -1,84 +1,123 @@
-<section id="contact" class="bg-app-bg-soft text-app-text py-28 px-8">
-    <div class="max-w-2xl mx-auto gap-20">
-        <div class="mb-12 text-center font-bold text-2xl">Let's Connection</div>
+<section
+  id="contact"
+  class="min-h-screen bg-app-bg-soft text-app-text py-28 px-8"
+>
+  <div class="max-w-2xl mx-auto gap-20">
+    <div class="mb-12 text-center font-bold text-2xl">Let's Connect</div>
 
-        <div class="bg-app-surface p-10 rounded-3xl border border-app-border">
-            <form class="space-y-6">
-                <div>
-                    <label class="block text-sm font-bold tracking-widest mb-2">Your Name</label>
-                    <input type="text"
-                        class="w-full bg-transparent border border-app-border rounded-xl px-4 py-4 focus:outline-none focus:border-secondary-cyan transition" />
-                </div>
-                <div>
-                    <label class="block text-sm font-bold tracking-widest mb-2">Email
-                        Address</label>
-                    <input type="email"
-                        class="w-full bg-transparent border border-app-border rounded-xl px-4 py-4 focus:outline-none focus:border-secondary-cyan transition" />
-                </div>
-                <div>
-                    <label class="block text-sm font-bold tracking-widest mb-2">Your Message</label>
-                    <textarea rows="4"
-                        class="w-full bg-transparent border border-app-border rounded-xl px-4 py-4 focus:outline-none focus:border-secondary-cyan transition resize-none"></textarea>
-                </div>
+    <div class="bg-app-surface p-10 rounded-3xl border border-app-border">
+      <form class="space-y-6" (ngSubmit)="sendMail()">
+        <div>
+          <label class="block text-app-text-muted text-sm font-medium tracking-widest mb-2">
+            Your Name
+          </label>
 
-
-                <button class="w-full cursor-pointer px-8 py-4 font-medium rounded-full text-black
-                   bg-linear-to-r from-brand-primary to-brand-secondary
-                   transition-all duration-300
-                   shadow-md hover:shadow-lg hover:-translate-y-0.5">
-                    Send Message
-                </button>
-                <div class="text-app-text transition text-center">
-                    <span>
-                        If the button does not open your mail app, use
-                    </span>
-
-                    <a href="mailto:xuantien24689@gmail.com"
-                        class="block mt-1 text-app-text-primary hover:underline underline-offset-4 transition">
-                        xuantien24689&#64;gmail.com
-                    </a>
-                </div>
-
-                <div class="flex justify-center items-center gap-6 text-sm">
-                    <!-- Mail -->
-                    <a href="mailto:xuantien24689@gmail.com" aria-label="Email" class="group w-12 h-12 rounded-full border border-app-border bg-app-surface
-           flex items-center justify-center
-           hover:bg-yellow-400 hover:border-yellow-400
-           transition hover:-translate-y-0.5">
-                        <img src="./icon/mail.svg" alt="" class="w-6 h-6 transition group-hover:brightness-0" />
-                    </a>
-
-                    <!-- Phone -->
-                    <a href="tel:0855247441" aria-label="Phone" class="group w-12 h-12 rounded-full border border-app-border bg-app-surface
-           flex items-center justify-center
-           hover:bg-yellow-400 hover:border-yellow-400
-           transition hover:-translate-y-0.5">
-                        <img src="./icon/phone.svg" alt="" class="w-6 h-6 transition group-hover:brightness-0" />
-                    </a>
-
-                    <!-- GitHub -->
-                    <a href="https://github.com/ngxuantien" target="_blank" rel="noopener noreferrer"
-                        aria-label="GitHub" class="group w-12 h-12 rounded-full border border-app-border bg-app-surface
-           flex items-center justify-center text-yellow-400
-           hover:bg-yellow-400 hover:border-yellow-400
-           transition hover:-translate-y-0.5">
-                        <svg class="w-6 h-6 transition group-hover:text-black">
-                            <use href="icon/github.svg"></use>
-                        </svg>
-                    </a>
-
-                    <!-- LinkedIn -->
-                    <a href="https://www.linkedin.com/in/nguy%E1%BB%85n-xu%C3%A2n-ti%E1%BA%BFn-7a7b55258/"
-                        target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="group w-12 h-12 rounded-full border border-app-border bg-app-surface
-         flex items-center justify-center text-yellow-400
-         hover:bg-yellow-400 hover:border-yellow-400
-         transition hover:-translate-y-0.5">
-                        <svg class="w-6 h-6 transition group-hover:text-black">
-                            <use href="icon/linkedin.svg"></use>
-                        </svg>
-                    </a>
-                </div>
-            </form>
+          <input
+            type="text"
+            name="name"
+            [(ngModel)]="contactForm.name"
+            class="w-full bg-transparent border border-app-border rounded-xl px-4 py-4 focus:outline-none focus:border-secondary-cyan transition"
+          />
         </div>
+
+        <div>
+          <label class="block text-app-text-muted text-sm font-medium tracking-widest mb-2">
+            Email Address
+          </label>
+
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="contactForm.email"
+            class="w-full bg-transparent border border-app-border rounded-xl px-4 py-4 focus:outline-none focus:border-secondary-cyan transition"
+          />
+        </div>
+
+        <div>
+          <label class="block text-app-text-muted text-sm font-medium tracking-widest mb-2">
+            Your Message
+          </label>
+
+          <textarea
+            rows="4"
+            name="message"
+            [(ngModel)]="contactForm.message"
+            class="w-full bg-transparent border border-app-border rounded-xl px-4 py-4 focus:outline-none focus:border-secondary-cyan transition resize-none"
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full cursor-pointer px-8 py-4 font-medium rounded-full text-black bg-linear-to-r from-brand-primary to-brand-secondary transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+        >
+          Send Message
+        </button>
+
+        <div class="text-app-text transition text-center">
+          <span> If your mail app does not open, contact me directly at </span>
+
+          <a
+            href="mailto:xuantien24689@gmail.com"
+            class="block mt-1 text-app-text-primary hover:underline underline-offset-4 transition"
+          >
+            xuantien24689&#64;gmail.com
+          </a>
+        </div>
+
+        <div class="flex justify-center items-center gap-6 text-sm">
+          <!-- Mail -->
+          <a
+            href="mailto:xuantien24689@gmail.com"
+            aria-label="Email"
+            class="group w-12 h-12 rounded-full border border-app-border bg-app-surface flex items-center justify-center hover:bg-yellow-400 hover:border-yellow-400 transition hover:-translate-y-0.5"
+          >
+            <img
+              src="./icon/mail.svg"
+              alt=""
+              class="w-6 h-6 transition group-hover:brightness-0"
+            />
+          </a>
+
+          <!-- Phone -->
+          <a
+            href="tel:0855247441"
+            aria-label="Phone"
+            class="group w-12 h-12 rounded-full border border-app-border bg-app-surface flex items-center justify-center hover:bg-yellow-400 hover:border-yellow-400 transition hover:-translate-y-0.5"
+          >
+            <img
+              src="./icon/phone.svg"
+              alt=""
+              class="w-6 h-6 transition group-hover:brightness-0"
+            />
+          </a>
+
+          <!-- GitHub -->
+          <a
+            href="https://github.com/ngxuantien"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            class="group w-12 h-12 rounded-full border border-app-border bg-app-surface flex items-center justify-center text-yellow-400 hover:bg-yellow-400 hover:border-yellow-400 transition hover:-translate-y-0.5"
+          >
+            <svg class="w-6 h-6 transition group-hover:text-black">
+              <use href="icon/github.svg"></use>
+            </svg>
+          </a>
+
+          <!-- LinkedIn -->
+          <a
+            href="https://www.linkedin.com/in/nguy%E1%BB%85n-xu%C3%A2n-ti%E1%BA%BFn-7a7b55258/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            class="group w-12 h-12 rounded-full border border-app-border bg-app-surface flex items-center justify-center text-yellow-400 hover:bg-yellow-400 hover:border-yellow-400 transition hover:-translate-y-0.5"
+          >
+            <svg class="w-6 h-6 transition group-hover:text-black">
+              <use href="icon/linkedin.svg"></use>
+            </svg>
+          </a>
+        </div>
+      </form>
     </div>
+  </div>
 </section>
