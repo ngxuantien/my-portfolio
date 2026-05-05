@@ -45,20 +45,16 @@ export class MainLayoutComponent implements AfterViewInit, OnDestroy {
 
     this.observer = new IntersectionObserver(
       (entries) => {
-        const visibleSections = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-        const currentSection = visibleSections[0];
-
-        if (currentSection?.target.id) {
-          this.sectionService.setActiveSection(currentSection.target.id);
-        }
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            this.sectionService.setActiveSection(entry.target.id);
+          }
+        });
       },
       {
         root: null,
-        rootMargin: '-35% 0px -45% 0px',
-        threshold: [0, 0.25, 0.5, 0.75, 1],
+        rootMargin: '-50% 0px -49% 0px',
+        threshold: 0,
       },
     );
 

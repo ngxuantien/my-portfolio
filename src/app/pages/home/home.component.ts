@@ -9,6 +9,7 @@ import Typed from 'typed.js';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
+  isResumeOpen = false;
   constructor(private sectionService: SectionService) {}
 
   ngAfterViewInit() {

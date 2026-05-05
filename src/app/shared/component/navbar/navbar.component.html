@@ -1,76 +1,182 @@
-<nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50">
-  <div class="hidden md:flex items-center justify-center rounded-full border border-app-border bg-app-bg px-12 py-3 shadow-xl shadow-app-shadow backdrop-blur-xl">
-    <!-- Menu -->
+<nav
+  class="fixed top-6 left-1/2 -translate-x-1/2 z-50 max-md:left-auto max-md:right-4 max-md:translate-x-0"
+>
+  <div class="mx-auto flex max-w-5xl items-center justify-between">
     <div
-      class="hidden md:flex items-center space-x-8 gap-8 font-medium text-app-text-muted"
+      class="hidden md:flex items-center justify-center rounded-full border border-app-border bg-app-bg px-12 py-3 shadow-xl shadow-app-shadow backdrop-blur-xl"
     >
+      <!-- Menu -->
+      <div
+        class="hidden md:flex items-center space-x-4 gap-4 lg:space-x-8 lg:gap-8 font-medium text-app-text-muted"
+      >
+        <a
+          (click)="scrollTo('home')"
+          class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-brand-secondary after:transition-all after:w-0 hover:after:w-full"
+          [ngClass]="
+            sectionService.activeSection() === 'home'
+              ? 'text-app-text-primary'
+              : 'hover:text-app-text-primary'
+          "
+        >
+          Home
+        </a>
+
+        <a
+          (click)="scrollTo('about')"
+          class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-brand-secondary after:transition-all after:w-0 hover:after:w-full"
+          [ngClass]="
+            sectionService.activeSection() === 'about'
+              ? 'text-app-text-primary'
+              : 'hover:text-app-text-primary'
+          "
+        >
+          About
+        </a>
+
+        <a
+          (click)="scrollTo('skills')"
+          class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-brand-secondary after:transition-all after:w-0 hover:after:w-full"
+          [ngClass]="
+            sectionService.activeSection() === 'skills'
+              ? 'text-app-text-primary'
+              : 'hover:text-app-text-primary'
+          "
+        >
+          Skills
+        </a>
+
+        <a
+          (click)="scrollTo('projects')"
+          class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-brand-secondary after:transition-all after:w-0 hover:after:w-full"
+          [ngClass]="
+            sectionService.activeSection() === 'projects'
+              ? 'text-app-text-primary'
+              : 'hover:text-app-text-primary'
+          "
+        >
+          Projects
+        </a>
+
+        <a
+          (click)="scrollTo('experience')"
+          class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-brand-secondary after:transition-all after:w-0 hover:after:w-full"
+          [ngClass]="
+            sectionService.activeSection() === 'experience'
+              ? 'text-app-text-primary'
+              : 'hover:text-app-text-primary'
+          "
+        >
+          Experience
+        </a>
+
+        <a
+          (click)="scrollTo('contact')"
+          class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-brand-secondary after:transition-all after:w-0 hover:after:w-full"
+          [ngClass]="
+            sectionService.activeSection() === 'contact'
+              ? 'text-app-text-primary'
+              : 'hover:text-app-text-primary'
+          "
+        >
+          Contact
+        </a>
+      </div>
+    </div>
+    <button
+      type="button"
+      class="ml-auto flex md:hidden h-10 w-10 items-center justify-center rounded-full border border-app-border bg-app-surface-glass text-app-text shadow-lg shadow-app-shadow backdrop-blur-xl transition hover:border-brand"
+      (click)="isMenuOpen = !isMenuOpen"
+      aria-label="Toggle menu"
+    >
+      @if (!isMenuOpen) {
+        <span class="leading-none">
+          <img src="./icon/text-align-justify.svg" alt="Menu" />
+        </span>
+      } @else {
+        <span class="leading-none">
+          <img src="./icon/x.svg" alt="Close" />
+        </span>
+      }
+    </button>
+  </div>
+
+  <!-- Mobile dropdown -->
+  <div
+    class="md:hidden absolute right-0 top-12 w-56 rounded-3xl border border-app-border bg-app-surface-glass p-3 shadow-xl shadow-app-shadow backdrop-blur-xl origin-top-right transition-all duration-300 ease-out"
+    [ngClass]="
+      isMenuOpen
+        ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto'
+        : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'
+    "
+  >
+    <div class="flex flex-col gap-1 font-medium text-app-text-muted">
       <a
-        (click)="scrollTo('home')"
-        class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-brand-primary after:transition-all after:w-0 hover:after:w-full"
+        (click)="scrollTo('home'); isMenuOpen = false"
+        class="cursor-pointer rounded-2xl px-4 py-3 transition"
         [ngClass]="
           sectionService.activeSection() === 'home'
-            ? 'text-app-text-primary'
-            : 'hover:text-app-text-primary'
+            ? 'bg-brand-muted text-brand'
+            : 'hover:bg-app-surface-muted hover:text-brand'
         "
       >
         Home
       </a>
 
       <a
-        (click)="scrollTo('about')"
-        class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-brand-primary after:transition-all after:w-0 hover:after:w-full"
+        (click)="scrollTo('about'); isMenuOpen = false"
+        class="cursor-pointer rounded-2xl px-4 py-3 transition"
         [ngClass]="
           sectionService.activeSection() === 'about'
-            ? 'text-app-text-primary'
-            : 'hover:text-app-text-primary'
+            ? 'bg-brand-muted text-brand'
+            : 'hover:bg-app-surface-muted hover:text-brand'
         "
       >
         About
       </a>
 
       <a
-        (click)="scrollTo('skills')"
-        class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-brand-primary after:transition-all after:w-0 hover:after:w-full"
+        (click)="scrollTo('skills'); isMenuOpen = false"
+        class="cursor-pointer rounded-2xl px-4 py-3 transition"
         [ngClass]="
           sectionService.activeSection() === 'skills'
-            ? 'text-app-text-primary'
-            : 'hover:text-app-text-primary'
+            ? 'bg-brand-muted text-brand'
+            : 'hover:bg-app-surface-muted hover:text-brand'
         "
       >
         Skills
       </a>
 
       <a
-        (click)="scrollTo('projects')"
-        class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-brand-primary after:transition-all after:w-0 hover:after:w-full"
+        (click)="scrollTo('projects'); isMenuOpen = false"
+        class="cursor-pointer rounded-2xl px-4 py-3 transition"
         [ngClass]="
           sectionService.activeSection() === 'projects'
-            ? 'text-app-text-primary'
-            : 'hover:text-app-text-primary'
+            ? 'bg-brand-muted text-brand'
+            : 'hover:bg-app-surface-muted hover:text-brand'
         "
       >
         Projects
       </a>
 
       <a
-        (click)="scrollTo('experience')"
-        class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-brand-primary after:transition-all after:w-0 hover:after:w-full"
+        (click)="scrollTo('experience'); isMenuOpen = false"
+        class="cursor-pointer rounded-2xl px-4 py-3 transition"
         [ngClass]="
           sectionService.activeSection() === 'experience'
-            ? 'text-app-text-primary'
-            : 'hover:text-app-text-primary'
+            ? 'bg-brand-muted text-brand'
+            : 'hover:bg-app-surface-muted hover:text-brand'
         "
       >
         Experience
       </a>
 
       <a
-        (click)="scrollTo('contact')"
-        class="cursor-pointer transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-brand-primary after:transition-all after:w-0 hover:after:w-full"
+        (click)="scrollTo('contact'); isMenuOpen = false"
+        class="cursor-pointer rounded-2xl px-4 py-3 transition"
         [ngClass]="
           sectionService.activeSection() === 'contact'
-            ? 'text-app-text-primary'
-            : 'hover:text-app-text-primary'
+            ? 'bg-brand-muted text-brand'
+            : 'hover:bg-app-surface-muted hover:text-brand'
         "
       >
         Contact

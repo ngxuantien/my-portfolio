@@ -12,6 +12,8 @@ import { SectionService } from '../../../core/services/section.service';
 export class NavbarComponent {
   constructor(public sectionService: SectionService){}
 
+  isMenuOpen = false;
+
   scrollTo(id: string): void{
     this.sectionService.setActiveSection(id);
 
